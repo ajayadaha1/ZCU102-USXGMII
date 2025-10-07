@@ -4,7 +4,7 @@
 
 This project utilizes USXGMII Ethernet Subsystem. This has been routed to the SFP cage on SFP0 for use on a ZCU102 board. System is configured to use the ZCU102 si570 at 156.25MHz.
 
-- `eth0` is configured as USXGMII Ethernet Subsystem routed to SFP0.
+- `end0` is configured as USXGMII Ethernet Subsystem routed to SFP0.
 
 ---
 
