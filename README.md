@@ -50,8 +50,20 @@ Once packaged, the `BOOT.bin` and `image.ub` files (in the `PetaLinux/images/lin
 ## **Validation**
 ### **Kernel:**
 **NOTE:** The interfaces are assigned as follows:
- - `eth0` -> 10G
+ - `end0` -> 10G
 ```
+Petalinux24:/home/petalinux# dmesg | grep axie
+[    9.922871] xilinx_axienet a0010000.ethernet end0: renamed from eth0
+[   12.399953] xilinx_axienet a0010000.ethernet end0: USXGMII setup at 10000
+Petalinux24:/home/petalinux# ifconfig end0 192.168.1.2
+Petalinux24:/home/petalinux# ping -A -q -w 3 -I eth0 192.168.1.1 
+ping: bad address 'eth0'
+Petalinux24:/home/petalinux# ping -A -q -w 3 -I end0 192.168.1.1 
+PING 192.168.1.1 (192.168.1.1): 56 data bytes
+
+--- 192.168.1.1 ping statistics ---
+25137 packets transmitted, 25137 packets received, 0% packet loss
+round-trip min/avg/max = 0.104/0.118/0.423 ms
 ```
 ### **Performance:**
 **NOTE:** These are rough performance numbers - your actual performance may vary based on a variety of factors such as network topology and kernel load.
